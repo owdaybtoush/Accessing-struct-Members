@@ -1,0 +1,185 @@
+
+Accessing struct Members
+
+#include<iostream>
+using namespace std;
+struct studentType
+{
+    string firstName;
+    string lastName;
+    char courseGrade;
+    int testScore;
+    int programmingScore;
+    double GPA;
+    
+}newStudent,student;
+//vairable declaration
+//studentType ;
+//studentType ;
+
+//void Point::print()
+   // void printstudent();
+
+void printstudent( studentType  newStudent )
+{
+    cout <<"\n"<<newStudent.firstName<<" "<<newStudent.lastName<<endl;
+        cout <<"\n testScore= "<<newStudent.testScore;
+        cout <<"\n programmingScore = "<<newStudent.programmingScore<<endl;
+        cout<< "The courseGrade = "<<newStudent.courseGrade<<endl;
+        cout<< "GPA = "<<newStudent.GPA;
+
+
+}
+
+
+int main()
+{
+    newStudent.GPA = 0.0;
+student.firstName = "ODAI";
+student.lastName = "BTOUSH";
+ cout<<"firstName \n" ;
+cin >> newStudent.firstName;
+ cout<<"lastName  \n" ;
+cin >> newStudent.lastName;
+if (student.firstName==newStudent.firstName and student.lastName==newStudent.lastName)
+cout<<"the same name\n"<<endl;
+
+else
+  
+cout<<"testScore\n"<<"programmingScore\n";
+cin>>newStudent.testScore>>newStudent.programmingScore;
+double score = (newStudent.testScore + newStudent.programmingScore) / 2;
+if (score >= 90)
+	newStudent.courseGrade = 'A';
+else if (score >= 80)
+	newStudent.courseGrade = 'B';
+else if (score >= 70)
+	newStudent.courseGrade = 'C';
+else if (score >= 60)
+	newStudent.courseGrade = 'D';
+else
+	newStudent.courseGrade = 'F';
+	
+	newStudent.GPA=score;
+ printstudent(newStudent );
+//void printstudent( newStudent);
+}
+
+Arrays in structs
+ex2.1
+
+#include<iostream>
+using namespace std;
+struct studentType
+{
+    string firstName;
+    string lastName;
+    char courseGrade;
+    int testScore;
+    int programmingScore;
+    double GPA;
+    
+};
+//vairable declaration
+//studentType ;
+//studentType ;
+
+//void Point::print()
+   // void printstudent();
+
+void printstudent( studentType  newStudent[] )
+{
+    for (int i = 0; i < 3; i++) {
+    cout <<"\n"<<newStudent[i].firstName<<" "<<newStudent[i].lastName<<endl;
+        cout <<"\n testScore= "<<newStudent[i].testScore;
+        cout <<"\n programmingScore = "<<newStudent[i].programmingScore<<endl;
+        cout<< "The courseGrade = "<<newStudent[i].courseGrade<<endl;
+        cout<< "GPA = "<<newStudent[i].GPA;
+
+}
+}
+
+
+int main()
+{
+   studentType newStudent[3];//ARRAY FOR 3 STUDENT
+    for (int i = 0; i < 3; i++) {
+ cout<<"firstName for the student number" <<i<<" \n" ;
+cin >> newStudent[i].firstName;
+ cout<<"lastName for the student number "<<i<< "\n" ;
+cin >> newStudent[i].lastName;
+  
+cout<<"testScore "<<i<<endl;
+cin>>newStudent[i].testScore;
+cout<<"programmingScore "<<i<<endl;
+cin>>newStudent[i].programmingScore;
+
+double score = (newStudent[i].testScore + newStudent[i].programmingScore) / 2;
+if (score >= 90)
+	newStudent[i].courseGrade = 'A';
+else if (score >= 80)
+	newStudent[i].courseGrade = 'B';
+else if (score >= 70)
+	newStudent[i].courseGrade = 'C';
+else if (score >= 60)
+	newStudent[i].courseGrade = 'D';
+else
+	newStudent[i].courseGrade = 'F';
+	
+	newStudent[i].GPA=score;
+    }
+ printstudent(newStudent );
+//void printstudent( newStudent);
+}
+
+
+Arrays in structs
+EX 2.2
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+struct name {
+    string firstname;
+    string lastname;
+};
+struct Student {
+    int id;
+    name n;
+    double avg;
+    int marks[3];
+
+};
+void print(Student st[]) {
+    for (int i = 0; i < 2; i++) {
+        cout <<  "id =" << st[i].id << endl;
+        cout <<  "first name: " << st[i].n.firstname << endl;
+        cout <<   "last name: " << st[i].n.lastname << endl;
+        cout <<  "avg: "<< st[i].avg << endl;
+        
+   
+    }
+}
+
+
+
+int main() {
+
+    Student st[2];
+    for (int i = 0; i < 2; i++) {
+        cout << "Enter your id: ";
+        cin >> st[i].id;
+        cout << "Enter your first name:";
+        cin >> st[i].n.firstname;
+        cout << "Enter your last name: ";
+        cin >> st[i].n.lastname;
+        cout << "Enter 3 marks: ";
+        cin >> st[i].marks[0] >> st[i].marks[1] >> st[i].marks[02];
+        st[i].avg = (st[i].marks[0] + st[i].marks[1] + st[i].marks[2]) / 3;
+    }
+    print(st);
+
+    return 0;
+}
